@@ -1,3 +1,7 @@
+output "subscription_cost_management_exports_id" {
+  description = "Map of id values across all subscription_cost_management_exports, keyed the same as var.subscription_cost_management_exports"
+  value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => v.id }
+}
 output "subscription_cost_management_exports_active" {
   description = "Map of active values across all subscription_cost_management_exports, keyed the same as var.subscription_cost_management_exports"
   value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => v.active }
