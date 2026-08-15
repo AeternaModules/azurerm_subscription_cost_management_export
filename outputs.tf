@@ -8,11 +8,11 @@ output "subscription_cost_management_exports_active" {
 }
 output "subscription_cost_management_exports_export_data_options" {
   description = "Map of export_data_options values across all subscription_cost_management_exports, keyed the same as var.subscription_cost_management_exports"
-  value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => v.export_data_options if v.export_data_options != null && length(v.export_data_options) > 0 }
+  value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => one(v.export_data_options) if v.export_data_options != null && length(v.export_data_options) > 0 }
 }
 output "subscription_cost_management_exports_export_data_storage_location" {
   description = "Map of export_data_storage_location values across all subscription_cost_management_exports, keyed the same as var.subscription_cost_management_exports"
-  value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => v.export_data_storage_location if v.export_data_storage_location != null && length(v.export_data_storage_location) > 0 }
+  value       = { for k, v in azurerm_subscription_cost_management_export.subscription_cost_management_exports : k => one(v.export_data_storage_location) if v.export_data_storage_location != null && length(v.export_data_storage_location) > 0 }
 }
 output "subscription_cost_management_exports_file_format" {
   description = "Map of file_format values across all subscription_cost_management_exports, keyed the same as var.subscription_cost_management_exports"
